@@ -15,3 +15,8 @@ spark = get_spark_session()
 
 df = get_raw_data(spark, config.bucket_name, config.s3_raw_folder, config.filename)
 df.show()
+
+
+
+## Bronze layer
+
