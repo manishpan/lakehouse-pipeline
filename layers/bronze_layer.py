@@ -1,3 +1,5 @@
+import sys
+sys.path.append("/home/manish/Documents/Spark-Tutorial/DE_Complete_Project_1/lakehouse-pipeline")
 from utils.aws_read import read_from_s3
 from utils.aws_write import write_to_s3
 from config import config

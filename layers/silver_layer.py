@@ -1,3 +1,5 @@
+import sys
+sys.path.append("/home/manish/Documents/Spark-Tutorial/DE_Complete_Project_1/lakehouse-pipeline")
 from config import config
 from pyspark.sql.types import *
 from pyspark.sql.functions import *
