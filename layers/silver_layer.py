@@ -46,6 +46,7 @@ class SilverLayer:
                 .withColumn("is_valid_fullVisitorId", col("fullVisitorId").isNotNull() & (length(col("fullVisitorId")) > 5)) \
                 .withColumn("is_valid_visitId", col("visitId").cast('long') > 0) \
                 .withColumn("is_valid_visitNumber", col("visitNumber").cast('int') >= 1) \
+                .withColumn("visitStartTime_ts", to_timestamp(col("visitStartTime"), "yyyyMMdd")) \
                 .withColumn("is_valid_timestamp", col("visitStartTime_ts").isNotNull()) \
                 .withColumn("is_valid_transactions", when(col("totals_parsed.transactions") > 0, col("totals_parsed.transactionRevenue") > 0).otherwise(True)) \
                 .withColumn("is_valid_bounces", when(col("totals_parsed.bounces") == 1, col("totals_parsed.pageviews") == 1).otherwise(True)) \
